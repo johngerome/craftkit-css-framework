@@ -59,7 +59,7 @@ gulp.task('css-uncss', function() {
 // Copy our site styles to a site.css file
 // for async loading later
 gulp.task('css-copystyles', function () {
-    return gulp.src([BUILD_DIR+ '/css/styles.css'])
+    return gulp.src([BUILD_DIR+ '/css/craftkit.css'])
         .pipe(plugins.rename({
             basename: "site"
         }))
@@ -95,7 +95,7 @@ gulp.task('css-critical', ['css-copystyles'], function () {
 // Development
 gulp.task('css-dev', function() {
     return gulp.src([
-            APP_DIR+ '/css/styl/*.styl'
+            APP_DIR+ '/css/*.styl'
         ])
         .pipe(plugins.stylus({
             sourcemap: {
@@ -111,7 +111,7 @@ gulp.task('css-dev', function() {
 // Production
 gulp.task('css-prod', function() {
     return gulp.src([
-            APP_DIR+ '/css/styl/*.styl'
+            APP_DIR+ '/css/*.styl'
         ])
         .pipe(plugins.stylus({
             use: koutoSwiss(),
@@ -147,7 +147,7 @@ gulp.task('js-minify', function() {
 
 // Build Custom modernizr.js for better performance
 gulp.task('js-modernizr', function() {
-  gulp.src([BUILD_DIR+ '/js/app.js', BUILD_DIR+ '/css/styles.css'])
+  gulp.src([BUILD_DIR+ '/js/app.js', BUILD_DIR+ '/css/craftkit.css'])
     .pipe(plugins.modernizr())
     .pipe(gulp.dest(BUILD_DIR+ '/js/'))
 });
